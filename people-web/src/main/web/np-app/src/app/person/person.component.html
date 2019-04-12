@@ -1,0 +1,61 @@
+<div id="person-body">
+	<form id="person-form" (ngSubmit)="onSubmit()" #personForm="ngForm">
+		<h3 class="mx-sm-3">Datos Generales</h3>
+		<hr/>
+		<div class="form-row">
+		  <div class="form-group mx-sm-3 col-md-2">
+		    <label for="inputName">Nombre</label>
+		    <input type="text" class="form-control" id="inputName" placeholder="Nombre..."
+		      [(ngModel)]="person.name" name="inputName" required>
+		  </div>
+		  <div class="form-group mx-sm-3 col-md-2">
+		    <label for="inputLastName">Apellido</label>
+		    <input type="text" class="form-control" id="inputName" placeholder="Apellido..."
+		      [(ngModel)]="person.lastName" name="inputLastName" required>
+		  </div>
+		  <div class="form-group mx-sm-3 col-md-2">
+		    <label for="inputDoc">Numero Documento</label>
+		    <input type="number" class="form-control" id="inputName" placeholder="Numero Documento..."
+		      [(ngModel)]="person.doc" name="inputDoc" required>
+		  </div>
+		</div>
+		<div class="form-row">
+		  <div class="form-group mx-sm-3 col-md-2">
+		    <label for="docType">Tipo Dcoumento</label>
+		    <select class="form-control" id="docType" required
+		      [(ngModel)]="person.docType" name="docType">
+		      <option *ngFor="let docType of docTypes" [value]="docType">{{docType}}</option>
+		    </select>
+		  </div>
+		  <div class="form-group mx-sm-3 col-md-2">
+		    <label for="inputDate">Fecha de Nacimiento</label>
+		    <input type="date" class="form-control" id="inputDate" placeholder="Fecha..."
+		      [(ngModel)]="person.date" name="inputDate" required>
+		  </div>
+		</div>
+		<button 
+		  id="back-to-search" 
+		  type="button" 
+		  class="btn btn-primary float-left"
+		  (click)="back()">
+		  	Volver
+		</button>
+		<button 
+		  id="save-person" 
+		  type="submit" 
+		  class="btn btn-success float-right"
+		  *ngIf="!person.id"
+		  [disabled]="!personForm.form.valid">
+		  	Guardar
+		</button>
+		<button 
+		  id="edit-person" 
+		  type="button" 
+		  class="btn btn-success float-right"
+		  *ngIf="person.id"
+		  (click)="updatePerson()" 
+		  [disabled]="!personForm.form.valid">
+		  	Editar
+		</button>
+  	</form>
+</div>

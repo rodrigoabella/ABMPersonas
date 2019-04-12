@@ -1,0 +1,66 @@
+<div>
+  <h1>
+    Personas
+  </h1>
+  <button id="new-person" type="button" class="btn btn-success float-right" routerLink="/app/people">Nuevo</button>
+  
+  <form id="filter-people-form" (ngSubmit)="onSubmit()" #searchPeopleForm="ngForm">
+    <h3 class="mx-sm-3">Filtros</h3>
+    <hr/>
+    <div class="form-row">
+      <div class="form-group mx-sm-3 col-md-2">
+        <label for="inputName">Nombre</label>
+        <input type="text" class="form-control" id="inputName" placeholder="Nombre..."
+          [(ngModel)]="personFilter.name" name="inputName">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="docType">Tipo Dcoumento</label>
+        <select class="form-control" id="docType" required
+          [(ngModel)]="personFilter.docType" name="docType">
+          <option *ngFor="let docType of docTypes" [value]="docType">{{docType}}</option>
+        </select>
+      </div>
+    </div>
+    <button 
+      id="filter-people" 
+      type="submit" 
+      class="btn btn-primary float-right"
+      [disabled]="!searchPeopleForm.form.valid"
+      >Buscar</button>
+  </form>
+  <div id="people-result">
+    <h3 class="mx-sm-3">Personas</h3>
+    <hr/>
+    <div class="table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Numero de Documento</th>
+            <th scope="col">Tipo Documento</th>
+            <th scope="col">Fecha Nacimiento</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let persona of people">
+            <th scope="row">{{persona.perId}}</th>
+            <td>{{persona.perNombre}}</td>
+            <td>{{persona.perApellido}}</td>
+            <td>{{persona.perNumberoDocumento}}</td>
+            <td>{{persona.perTipoDocumento}}</td>
+            <td>{{persona.perFechaNacimiento}}</td>
+            <td>
+              <button id="edit-person" type="button" class="btn btn-primary btn-sm" (click)="redirectToPerson(persona)">Editar</button>
+              <button id="delete-person" type="button" class="btn btn-danger btn-sm" 
+                (click)="openModal(persona)"
+              >Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

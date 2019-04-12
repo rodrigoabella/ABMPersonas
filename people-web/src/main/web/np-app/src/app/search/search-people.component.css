@@ -1,0 +1,23 @@
+#new-person {
+	margin-right: 1%;
+}
+
+#filter-people-form {
+	margin-top: 50px;
+	background-color: white;
+	padding-bottom: 50px;
+	margin-right: 1%;
+	margin-left: 1%;
+}
+
+#filter-people-form #filter-people {
+	margin-right: 1%;
+}
+
+#people-result {
+	margin-top: 50px;
+	background-color: white;
+	padding-bottom: 50px;
+	margin-right: 1%;
+	margin-left: 1%;
+}
