@@ -25,3 +25,10 @@ ABM de personas con spring-web y angular 6
  5. cp people-war/target/app.war /var/lib/tomcat7/webapps/app.war 
  6. reiniciar servicio tomcat7: `service tomcat7 restart`
  6. ingresar al navegador en `http://localhost:8080/app`
+
+## Ejecutar aplicacion con docker
+ 1. clonar repositorio
+ 2. cd ABMPersonas
+ 3. construir imagen docker ejecutando `docker build -t people-app .` (solo ejecutar la primera vez para construir la imagen docker)
+ 4. correr aplicacion ejectuando: `docker run -d -e DB_DIR=~/people-app -p 8081:8081 people-app`
+ 5. ingresar al navegador en `http://localhost:8081/app`
