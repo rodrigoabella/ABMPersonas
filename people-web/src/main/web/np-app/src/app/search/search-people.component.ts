@@ -41,8 +41,7 @@ export class SearchPeopleComponent {
         this.people = data.personas;
       },
       (err: any) => {
-        //this.msg = err.error.message;
-        this.people = [{"perId":7,"perNombre":"flavio","perApellido":"abella","perFechaNacimiento":"2017-11-14","perNumeroDocumento":35259976,"perTipoDocumento":"DNI"},{"perId":8,"perNombre":"rodrigo2","perApellido":"abella","perFechaNacimiento":"2017-11-14","perNumeroDocumento":35259976,"perTipoDocumento":"DNI"},{"perId":9,"perNombre":"rodriGo3","perApellido":"abella","perFechaNacimiento":"2017-11-14","perNumeroDocumento":35259976,"perTipoDocumento":"DNI"},{"perId":10,"perNombre":"flavio4","perApellido":"abella","perFechaNacimiento":"2017-11-14","perNumeroDocumento":35259976,"perTipoDocumento":"CEDULA"},{"perId":11,"perNombre":"flavio5","perApellido":"abella","perFechaNacimiento":"2017-11-14","perNumeroDocumento":35259976,"perTipoDocumento":"CEDULA"},{"perId":12,"perNombre":"rodrigo","perApellido":"abella","perFechaNacimiento":"2017-11-14","perNumeroDocumento":35259976,"perTipoDocumento":"DNI"},{"perId":13,"perNombre":"flavio5","perApellido":"abella","perFechaNacimiento":"2017-11-14","perNumeroDocumento":35259976,"perTipoDocumento":"DNI"},{"perId":15,"perNombre":"rodrigoooo","perApellido":"abella","perFechaNacimiento":"2017-11-14","perNumeroDocumento":35259976,"perTipoDocumento":"CEDULA"}];
+        this.msg = err.error.message;
       }
     );
   }

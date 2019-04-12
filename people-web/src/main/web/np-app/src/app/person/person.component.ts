@@ -19,11 +19,11 @@ export class PersonComponent {
 
   constructor(private location: Location, private searchPeopleService: SearchPeopleService, private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
-        this.person.id = params["perId"];
+        this.person.id = Number(params["perId"]);
         this.person.name = params["perNombre"];
         this.person.lastName = params["perApellido"];
         this.person.date = params["perFechaNacimiento"];
-        this.person.doc = params["perNumeroDocumento"];
+        this.person.doc = Number(params["perNumeroDocumento"]);
         this.person.docType = params["perTipoDocumento"];
     });
   }
